@@ -42,7 +42,9 @@ export function JokeByID() {
     }, [location, jokeID]);
 
     return <div className={'joke-by-id'}>
-        {joke && <><h3>{joke.text}</h3><RandomImage/><ShareWidget/></>}
+        {joke && <><h3>{joke.text}</h3><RandomImage/>{joke.shared && joke.shared_on &&
+            <p>Psst... You last shared this on {new Date(joke.shared_on).toLocaleDateString()} using
+                an {joke.shared_via}</p>}<ShareWidget/></>}
         {!joke && <Error/>}
     </div>
 }
