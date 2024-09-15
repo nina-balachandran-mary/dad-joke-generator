@@ -1,0 +1,23 @@
+@import "/public/variables.css";
+
+.attribution {
+    font-size: 0.75em;
+    text-align: center;
+    margin-right: 3em;
+}
+
+.attribution a {
+    color: inherit;
+    font-weight: bold;
+}
+
+.footer {
+    height: var(--footer-height);
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: flex-end;
+    position: fixed;
+    bottom: 0;
+    color: black;
+}

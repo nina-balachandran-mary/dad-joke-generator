@@ -1,0 +1,19 @@
+@import "public/variables.css";
+header {
+    height: var(--header-height);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2em;
+    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.2);
+}
+
+header > * {
+    margin: 0 2em;
+    display: inline-block;
+}
+
+.site-logo {
+    max-height: 80%;
+}
+

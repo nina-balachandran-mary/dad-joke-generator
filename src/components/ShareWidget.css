@@ -1,0 +1,15 @@
+.share-widget {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    max-width: 5em;
+    gap: 0.5em;
+    margin-top: 1em;
+}
+
+.share-widget > .resp-sharing-button__link{
+    width: 80px;
+    height: 80px;
+    display: inline-block;
+}
