@@ -2,7 +2,10 @@
 
 ## Details
 This project has been built using TypeScript + React using the Vite bundler. To run the project simply run
+```npm run build```
+```npm run preview```
 
+To run it locally in dev mode
 ```npm run dev```
 
 All jokes served by the website are built using the various APIs at https://icanhazdadjoke.com

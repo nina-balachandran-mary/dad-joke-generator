@@ -27,7 +27,7 @@ export function JokeByID() {
         if (storedJokes[jokeID]) {
             setJoke(storedJokes[jokeID])
         } else {
-            getJokeById(jokeID).then((result) => result.json(), () => <Error/>).then(data => {
+            getJokeById(jokeID).then(data => {
                 storedJokes[data.id] = {
                     id: data.id,
                     shared: false,
@@ -37,7 +37,7 @@ export function JokeByID() {
                 } as LocalStorageValueType
                 localStorage.setItem('jokes', JSON.stringify(storedJokes))
                 setJoke(storedJokes[data.id])
-            })
+            }, () => <Error/>)
         }
     }, [location, jokeID]);
 
