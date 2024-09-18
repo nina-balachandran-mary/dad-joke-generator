@@ -1,12 +1,17 @@
 # Dad Joke Generator
 
 ## Details
-This project has been built using TypeScript + React using the Vite bundler. To run the project simply run
+This project has been built using TypeScript + React using the Vite bundler. To run the project in prod mode run
+
 ```npm run build```
+
 ```npm run preview```
 
 To run it locally in dev mode
+
 ```npm run dev```
+
+You can alternatively click [here](https://nina-balachandran-mary.github.io/dad-joke-generator/) to view the running website
 
 All jokes served by the website are built using the various APIs at https://icanhazdadjoke.com
 The API and its documentation can be found here: https://icanhazdadjoke.com/api. Jokes are stored using the `localStorage` API
