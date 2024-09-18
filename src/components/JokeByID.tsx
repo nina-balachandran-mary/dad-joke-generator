@@ -10,6 +10,7 @@ export function JokeByID() {
     const location = useLocation()
     const jokeID = location.pathname.split('/')[2]
     const [joke, setJoke] = useState<LocalStorageValueType | null>()
+    const [shared, setShared] = useState<boolean>(false)
 
     const getJokeById = async (jokeID: string) => {
         const result = await fetch(`https://icanhazdadjoke.com/j/${jokeID}`, {
@@ -26,6 +27,7 @@ export function JokeByID() {
         const storedJokes = JSON.parse(localStorage.getItem('jokes') || '{}')
         if (storedJokes[jokeID]) {
             setJoke(storedJokes[jokeID])
+            setShared(joke?.shared || false)
         } else {
             getJokeById(jokeID).then(data => {
                 storedJokes[data.id] = {
@@ -39,12 +41,12 @@ export function JokeByID() {
                 setJoke(storedJokes[data.id])
             }, () => <Error/>)
         }
-    }, [location, jokeID]);
+    }, [location, jokeID, shared]);
 
     return <div className={'joke-by-id'}>
-        {joke && <><h3>{joke.text}</h3><RandomImage/>{joke.shared && joke.shared_on &&
+        {joke && <><h3>{joke.text}</h3><RandomImage/>{(shared || joke.shared) && !!joke.shared_on &&
             <p>Psst... You last shared this on {new Date(joke.shared_on).toLocaleDateString()} using
-                an {joke.shared_via}</p>}<ShareWidget/></>}
+                an {joke.shared_via}</p>}<ShareWidget jokeID={joke.id} shareHandler={setShared}/></>}
         {!joke && <Error/>}
     </div>
 }

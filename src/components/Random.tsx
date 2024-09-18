@@ -46,6 +46,6 @@ export function Random() {
         {jokeObject?.joke && <h3>{jokeObject.joke}</h3>}
         <RandomImage/>
         <button onClick={() => setShowNewJoke(true)}>Show me another one!</button>
-        {jokeObject?.joke && <ShareWidget/>}
+        {jokeObject?.joke && <ShareWidget jokeID={jokeObject.id}/>}
     </div>
 }

@@ -11,5 +11,6 @@ export function History() {
     }, []);
     return <div>
         {jokes && <ListItem jokes={Object.values(jokes)} listType={'history'}/>}
+        {Object.keys(jokes).length === 0 && <h3>No jokes here yet. Why don't you search for some?</h3>}
     </div>
 }

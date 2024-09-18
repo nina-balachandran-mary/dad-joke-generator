@@ -3,10 +3,14 @@ import FBLogo from '/assets/images/facebook-round-color-icon.svg'
 import XLogo from '/assets/images/x-social-media-logo-icon.svg'
 import {LocalStorageValueType} from "../types/Storage.ts";
 
-export function ShareWidget() {
+export type ShareWidgetProps = {
+    jokeID: string
+    shareHandler?: (b: boolean) => void
+}
+
+export function ShareWidget({jokeID, shareHandler}: ShareWidgetProps) {
     const linkToJoke = location.href
     const markAsShared = (sharedOn: string) => {
-        const jokeID = (location.pathname.split('/')[2])
         const storedJokes: Record<string, LocalStorageValueType> | null = JSON.parse(localStorage.getItem('jokes') || '{}')
         if (!storedJokes) {
             return
@@ -16,6 +20,11 @@ export function ShareWidget() {
         storedJokes[jokeID]['shared_via'] = 'url on ' + sharedOn;
 
         localStorage.setItem('jokes', JSON.stringify(storedJokes));
+        // Notify parent component that joke has been shared
+        if (shareHandler) {
+            shareHandler(true)
+        }
+
         navigator.clipboard.writeText(linkToJoke)
     }
 

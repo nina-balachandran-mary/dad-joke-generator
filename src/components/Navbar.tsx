@@ -7,13 +7,12 @@ export function Navbar() {
     const location = useLocation();
 
     useEffect(() => {
-        for(const item in navItems) {
-            if(navItems[item]['path'] === location.pathname) {
+        for (const item in navItems) {
+            if (navItems[item]['path'] === location.pathname) {
                 setCurrentPage(parseInt(item))
                 break;
             }
         }
-
     }, [location]);
 
     const navItems = [{name: 'Home', path: '/'},

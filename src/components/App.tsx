@@ -16,7 +16,7 @@ function App() {
             <Header/>
             <main className={'site-page'}>
                 <Routes>
-                    <Route path="/" element={<Home/>}/>
+                    <Route path="/*" element={<Home/>}/>
                     <Route path="/random" element={<Random/>}/>
                     <Route path="/search" element={<Search/>}/>
                     <Route path="/history" element={<History/>}/>
