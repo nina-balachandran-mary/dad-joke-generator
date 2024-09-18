@@ -1,4 +1,4 @@
-@import "public/variables.css";
+@import "/public/variables.css";
 header {
     height: var(--header-height);
     display: flex;

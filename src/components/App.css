@@ -1,4 +1,4 @@
-@import "public/variables.css";
+@import "/public/variables.css";
 
 .site-page {
     min-height: calc(100vh - var(--footer-height) - var(--header-height));
